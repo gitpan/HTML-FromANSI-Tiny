@@ -12,6 +12,9 @@ __DATA__
 Randy
 Stauner
 rwstauner
+Stephen
+Thirlwall
+sdt
 lib
 HTML
 FromANSI

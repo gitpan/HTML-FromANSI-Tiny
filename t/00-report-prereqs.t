@@ -10,8 +10,8 @@ use File::Spec::Functions;
 use List::Util qw/max/;
 
 my @modules = qw(
+  Capture::Tiny
   ExtUtils::MakeMaker
-  File::Find
   File::Spec::Functions
   File::Temp
   HTML::Entities
@@ -19,6 +19,7 @@ my @modules = qw(
   Parse::ANSIColor::Tiny
   Test::Differences
   Test::More
+  blib
   perl
   strict
   warnings

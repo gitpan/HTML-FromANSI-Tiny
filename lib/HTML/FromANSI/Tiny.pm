@@ -12,9 +12,9 @@ use warnings;
 
 package HTML::FromANSI::Tiny;
 {
-  $HTML::FromANSI::Tiny::VERSION = '0.101';
+  $HTML::FromANSI::Tiny::VERSION = '0.102';
 }
-# git description: v0.100-11-gb12fb90
+# git description: v0.101-3-g4d12212
 
 BEGIN {
   $HTML::FromANSI::Tiny::AUTHORITY = 'cpan:RWSTAUNER';
@@ -65,7 +65,7 @@ sub css {
 
   my @css = (
     map { "${prefix}$_ { " . $self->_css_attr_string($styles->{$_}) . " }" }
-      keys %$styles
+      sort keys %$styles
   );
 
   return wantarray ? @css : join('', @css);
@@ -178,9 +178,9 @@ __END__
 
 =encoding utf-8
 
-=for :stopwords Randy Stauner ACKNOWLEDGEMENTS inline hashrefs html cpan testmatrix url
-annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata
-placeholders metacpan
+=for :stopwords Randy Stauner ACKNOWLEDGEMENTS inline hashrefs Stephen Thirlwall
+<sdt@cpan.org> html cpan testmatrix url annocpan anno bugtracker rt cpants
+kwalitee diff irc mailto metadata placeholders metacpan
 
 =head1 NAME
 
@@ -188,7 +188,7 @@ HTML::FromANSI::Tiny - Easily convert colored command line output to HTML
 
 =head1 VERSION
 
-version 0.101
+version 0.102
 
 =head1 SYNOPSIS
 
@@ -463,6 +463,10 @@ L<https://github.com/rwstauner/HTML-FromANSI-Tiny>
 =head1 AUTHOR
 
 Randy Stauner <rwstauner@cpan.org>
+
+=head1 CONTRIBUTOR
+
+Stephen Thirlwall <sdt@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

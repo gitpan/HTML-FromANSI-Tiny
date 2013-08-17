@@ -3,17 +3,18 @@ abstract: 'Easily convert colored command line output to HTML'
 author:
   - 'Randy Stauner <rwstauner@cpan.org>'
 build_requires:
+  Capture::Tiny: 0
   ExtUtils::MakeMaker: 0
-  File::Find: 0
   File::Spec::Functions: 0
   File::Temp: 0
   List::Util: 0
   Test::Differences: 0
   Test::More: 0.96
+  blib: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.131560'
+generated_by: 'Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.132140'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -35,7 +36,7 @@ no_index:
 provides:
   HTML::FromANSI::Tiny:
     file: lib/HTML/FromANSI/Tiny.pm
-    version: 0.101
+    version: 0.102
 requires:
   HTML::Entities: 0
   Parse::ANSIColor::Tiny: 0.400
@@ -46,7 +47,7 @@ resources:
   bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=HTML-FromANSI-Tiny
   homepage: https://github.com/rwstauner/HTML-FromANSI-Tiny
   repository: https://github.com/rwstauner/HTML-FromANSI-Tiny.git
-version: 0.101
+version: 0.102
 x_Dist_Zilla:
   perl:
     version: 5.016003
@@ -106,7 +107,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::PodWeaver
       name: '@Author::RWSTAUNER/PodWeaver'
-      version: 3.101641
+      version: 3.101642
     -
       class: Dist::Zilla::Plugin::License
       name: '@Author::RWSTAUNER/License'
@@ -130,7 +131,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::GithubMeta
       name: '@Author::RWSTAUNER/GithubMeta'
-      version: 0.28
+      version: 0.30
     -
       class: Dist::Zilla::Plugin::ContributorsFromGit
       name: '@Author::RWSTAUNER/ContributorsFromGit'
@@ -146,7 +147,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::MetaProvides::Package
       name: '@Author::RWSTAUNER/MetaProvides::Package'
-      version: 1.14000002
+      version: 1.14000003
     -
       class: Dist::Zilla::Plugin::MinimumPerl
       name: '@Author::RWSTAUNER/MinimumPerl'
@@ -190,11 +191,11 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Test::UnusedVars
       name: '@Author::RWSTAUNER/@TestingMania/Test::UnusedVars'
-      version: 2.000004
+      version: 2.000005
     -
       class: Dist::Zilla::Plugin::Test::Portability
       name: '@Author::RWSTAUNER/@TestingMania/Test::Portability'
-      version: 2.000004
+      version: 2.000005
     -
       class: Dist::Zilla::Plugin::Test::Version
       name: '@Author::RWSTAUNER/@TestingMania/Test::Version'
@@ -218,7 +219,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Test::Kwalitee
       name: '@Author::RWSTAUNER/@TestingMania/Test::Kwalitee'
-      version: 2.03
+      version: 2.05
     -
       class: Dist::Zilla::Plugin::Test::EOL
       name: '@Author::RWSTAUNER/@TestingMania/Test::EOL'
@@ -226,19 +227,25 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Test::Synopsis
       name: '@Author::RWSTAUNER/@TestingMania/Test::Synopsis'
-      version: 2.000003
+      version: 2.000004
     -
       class: Dist::Zilla::Plugin::Test::DistManifest
       name: '@Author::RWSTAUNER/@TestingMania/Test::DistManifest'
-      version: 2.000003
+      version: 2.000004
     -
       class: Dist::Zilla::Plugin::Test::CPAN::Meta::JSON
       name: '@Author::RWSTAUNER/@TestingMania/Test::CPAN::Meta::JSON'
       version: 0.003
     -
       class: Dist::Zilla::Plugin::Test::Compile
+      config:
+        Dist::Zilla::Plugin::Test::Compile:
+          module_finder:
+            - ':InstallModules'
+          script_finder:
+            - ':ExecFiles'
       name: '@Author::RWSTAUNER/@TestingMania/Test::Compile'
-      version: 2.002
+      version: 2.018
     -
       class: Dist::Zilla::Plugin::Test::Pod::LinkCheck
       name: '@Author::RWSTAUNER/@TestingMania/Test::Pod::LinkCheck'
@@ -349,3 +356,5 @@ x_Dist_Zilla:
       is_trial: 0
     version: 4.300035
 x_authority: cpan:RWSTAUNER
+x_contributors:
+  - 'Stephen Thirlwall <sdt@cpan.org>'
