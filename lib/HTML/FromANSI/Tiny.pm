@@ -11,11 +11,8 @@ use strict;
 use warnings;
 
 package HTML::FromANSI::Tiny;
-{
-  $HTML::FromANSI::Tiny::VERSION = '0.102';
-}
-# git description: v0.101-3-g4d12212
-
+# git description: v0.102-2-ge6a677d
+$HTML::FromANSI::Tiny::VERSION = '0.103';
 BEGIN {
   $HTML::FromANSI::Tiny::AUTHORITY = 'cpan:RWSTAUNER';
 }
@@ -34,6 +31,8 @@ sub new {
     class_prefix => '',
     selector_prefix => '',
     tag => 'span',
+    # It seems particularly unlikely that somebody would want these in their HTML.
+    remove_escapes => 1,
     @_ == 1 ? %{ $_[0] } : @_,
   };
 
@@ -50,7 +49,11 @@ sub ansi_parser {
   my ($self) = @_;
   return $self->{ansi_parser} ||= do {
     # hash slice
-    my (@fields, %copy) = qw(auto_reverse foreground background);
+    my (@fields, %copy) = qw(
+      auto_reverse
+      foreground background
+      remove_escapes
+    );
     @copy{ @fields } = @$self{ @fields };
     Parse::ANSIColor::Tiny->new(%copy);
   };
@@ -176,7 +179,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =for :stopwords Randy Stauner ACKNOWLEDGEMENTS inline hashrefs Stephen Thirlwall
 <sdt@cpan.org> html cpan testmatrix url annocpan anno bugtracker rt cpants
@@ -188,7 +191,7 @@ HTML::FromANSI::Tiny - Easily convert colored command line output to HTML
 
 =head1 VERSION
 
-version 0.102
+version 0.103
 
 =head1 SYNOPSIS
 
@@ -266,7 +269,8 @@ C<tag> - Alternate tag in which to wrap the HTML; Defaults to C<span>.
 
 For convenience and consistency options to L<Parse::ANSIColor::Tiny/new>
 can be specified directly including
-C<auto_reverse>, C<background>, and C<foreground>.
+C<auto_reverse>, C<background>, C<foreground>,
+and C<remove_escapes>.
 
 =head2 ansi_parser
 

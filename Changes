@@ -1,5 +1,11 @@
 Revision history for HTML-FromANSI-Tiny
 
+0.103     2014-03-16T01:56:14Z
+
+  - Remove many terminal escape sequences not related to color
+    (by bumping the prereq on Parse::ANSIColor::Tiny to 0.500).
+    Thanks to Taiki Kawakami for the pull request!
+
 0.102     2013-08-17T17:20:37Z
 
   - Sort css entries for consistent output on 5.18+ (to facilitate testing).
